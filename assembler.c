@@ -6,8 +6,8 @@
 // Funcția care întoarce opcode-ul pe 6 biți
 uint16_t get_opcode(const char* op) {
     // 00xxxx - Memorie
-    if (strcmp(op, "LOAD") == 0)  return 0x00;
-    if (strcmp(op, "STORE") == 0) return 0x01;
+    if (strcmp(op, "LDR") == 0)  return 0x00;
+    if (strcmp(op, "STR") == 0) return 0x01;
     if (strcmp(op, "MOV") == 0)   return 0x02;
     
     // 01xxxx - Aritmetice
