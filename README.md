@@ -1,4 +1,4 @@
-Procesor General Purpose (16-bit) și ASIP
+Procesor General Purpose (16-bit)
 
 Descriere proiect
 Acest proiect reprezintă implementarea în echipă a unui procesor de uz general (GP) pe 16 biți, extins cu un co-procesor (ASIP) pentru sarcini specifice. Procesorul execută un set propriu de instrucțiuni (ISA) de 16 biți, care va fi tradus în cod mașină prin intermediul unui assembler și rulat din memorie.
