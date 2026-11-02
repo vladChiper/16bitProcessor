@@ -44,7 +44,10 @@ uint16_t get_opcode(const char* op) {
 }
 
 int main() {
-    FILE *input = fopen("cod.txt", "r");
+    //FILE *input = fopen("cod.txt", "r");
+    FILE *input = fopen("test1_paritate.txt", "r");
+    //FILE *input = fopen("test1_bucla.txt", "r");
+    //FILE *input = fopen("test1_matematica.txt", "r");
     FILE *output = fopen("memorie.hex", "w");
 
     if (!input) {

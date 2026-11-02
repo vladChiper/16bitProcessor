@@ -1,0 +1,19 @@
+; --- Test: Verificare Numar Impar ---
+; Scop: Daca numarul e impar, il salvam la adresa 201. Daca e par, la 200.
+
+MOV X, 27        ; Adresa 0: Incarcam numarul de test (27)
+MOV Y, X        ; Adresa 1: Facem o copie in Y pentru a o salva mai tarziu
+
+AND X, 1         ; Adresa 2: Mascam bitii. Daca era impar, X devine 1. Daca par, X devine 0.
+CMP X, 1         ; Adresa 3: Comparam X cu 1. (Daca X e 1, 1 - 1 = 0, se seteaza Zero Flag)
+BRZ 7            ; Adresa 4: Salt la adresa 7 daca Zero Flag = 1 (adica e impar)
+
+; --- Ramura pentru numar PAR ---
+STR Y, 200       ; Adresa 5: Salvam numarul in memoria RAM la adresa 200
+BRA 8            ; Adresa 6: Salt la final pentru a evita ramura de impar
+
+; --- Ramura pentru numar IMPAR ---
+STR Y, 201       ; Adresa 7: Salvam numarul in memoria RAM la adresa 201
+
+; --- Final program ---
+BRA 8            ; Adresa 8: Bucla infinita (HALT)

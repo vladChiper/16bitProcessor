@@ -18,8 +18,8 @@ Flag Register: 4-bit (Zero, Negative, Carry, Overflow). Doar instrucțiunile ari
 Setul de instrucțiuni (ISA)
 
 00xxxx - Memorie și Transfer
-LOAD (000000) - Încarcă date în X sau Y
-STORE (000001) - Salvează din X/Y în memorie
+LDR (000000) - Încarcă date în X sau Y
+STR (000001) - Salvează din X/Y în memorie
 MOV (000010) - Transferă date
 
 01xxxx - Aritmetică
@@ -51,3 +51,6 @@ BRO (110011) - Salt dacă e Overflow
 BRA (110100) - Salt necondiționat
 JMP (110101) - Apel procedură (pune PC pe stivă, parametrii trec prin stivă)
 RET (110110) - Return (scoate PC de pe stivă, valoarea returnată trece prin stivă)
+
+
+// DE ADAUGAT FCT DE HALT, MOV CU 2 REG, DE VZ DC FIECARE INSTR DA 2 OUTPUTURI IN SIM

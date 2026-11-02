@@ -1,0 +1,12 @@
+; --- Test: Calcul Ecuatie ---
+; Scop: Y = ((15 * 3) + 5) / 10
+
+MOV Y, 15        ; Adresa 0: Y = 15
+MUL Y, 3         ; Adresa 1: Y = 15 * 3 = 45
+ADD Y, 5         ; Adresa 2: Y = 45 + 5 = 50
+DIV Y, 10        ; Adresa 3: Y = 50 / 10 = 5
+
+STR Y, 100       ; Adresa 4: Salvam rezultatul (5) la adresa 100
+
+; --- Final program ---
+BRA 5            ; Adresa 5: Bucla infinita (HALT)

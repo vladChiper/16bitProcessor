@@ -1,0 +1,14 @@
+; --- Test: Bucla de tip While (Countdown) ---
+; Scop: Numaram de la 5 la 0 si scriem constant valoarea in RAM la adresa 50
+
+MOV X, 5         ; Adresa 0: Initializam contorul cu 5
+
+; --- Inceputul buclei ---
+STR X, 50        ; Adresa 1: Scriem valoarea curenta a lui X in RAM la adresa 50
+DEC X            ; Adresa 2: Decrementam contorul (X = X - 1)
+CMP X, 0         ; Adresa 3: Verificam daca am ajuns la 0
+BRZ 6            ; Adresa 4: Daca e 0, am terminat, iesim din bucla (salt la adresa 6)
+BRA 1            ; Adresa 5: Daca nu, ne intoarcem la inceputul buclei (adresa 1)
+
+; --- Final program ---
+BRA 6            ; Adresa 6: Bucla infinita (HALT)
