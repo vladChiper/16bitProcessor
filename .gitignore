@@ -1,0 +1,7 @@
+*.exe
+*.hex
+*.vcd
+*.fst
+*.log
+a.out
+.vscode/
