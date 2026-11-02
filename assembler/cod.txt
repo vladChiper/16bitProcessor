@@ -1,37 +1,23 @@
-; --- Test complet Assembler GP 16-bit ---
-; Incarcare date initiale in registri
-LDR X, 15        ; Incarca valoarea 15 in X
-LDR Y, 5         ; Incarca valoarea 5 in Y
-
-; Test instructiuni matematice (rutate catre ALU)
-ADD X, 3         ; X = X + 3
-SUB Y, 2         ; Y = Y - 2
-MUL X, 2         ; X = X * 2
-DIV X, 4         ; X = X / 4 (impartire intreaga)
-MOD Y, 2         ; Y = Y % 2
-INC X            ; Incrementare X
-DEC Y            ; Decrementare Y
-
-; Test instructiuni logice si shiftare
-AND X, 1         ; X & 1 (Masking test)
-OR Y, 8          ; Y | 8
-XOR X, 3         ; X ^ 3
-NOT X            ; Inversare biti X
-LSL X, 2         ; Shift logic stanga cu 2 pozitii pe X
-RSR Y, 1         ; Rotatie dreapta pe Y (1 bit)
-
-; Test comparare si branch-uri
-CMP X, 5         ; Compara X cu 5 (setari flags: Z, N, C, V)
-BRZ 45           ; Salt la instructiunea de la adresa 45 daca Z=1
-BRN 50           ; Salt la 50 daca Negative
-BRO 60           ; Salt la 60 daca Overflow
-
-; Test proceduri
-JMP 100          ; Call procedura aflata la adresa 100 (adauga PC pe stiva)
-
-; Testare tratare erori asamblor (aceste linii ar trebui sa fie raportate in consola)
-ADD Z, 5
-BAD_OPCODE X, 1
-
-; Sfarsit apel (Return)
-RET              ; Extrage adresa din stiva in PC
+MOV X, 15        ; Adresa 0: X = 15, ACC = 15
+MOV Y, 5         ; Adresa 1: Y = 5,  ACC = 5
+ADD X, 3         ; Adresa 2: X = 15 + 3 = 18
+SUB Y, 2         ; Adresa 3: Y = 5 - 2 = 3
+MUL X, 2         ; Adresa 4: X = 18 * 2 = 36
+DIV X, 4         ; Adresa 5: X = 36 / 4 = 9
+MOD Y, 2         ; Adresa 6: Y = 3 % 2 = 1
+INC X            ; Adresa 7: X = 9 + 1 = 10
+DEC Y            ; Adresa 8: Y = 1 - 1 = 0 (Seteaza Z=1)
+STR X, 50        ; Adresa 9: Salveaza X (10) in RAM la adresa 50
+LDR Y, 50        ; Adresa 10: Incarca in Y valoarea de la adresa 50 (Y devine 10)
+AND X, 14        ; Adresa 11: X = 10 & 14 = 10
+OR Y, 5          ; Adresa 12: Y = 10 | 5 = 15
+XOR X, 3         ; Adresa 13: X = 10 ^ 3 = 9
+LSL X, 1         ; Adresa 14: X = 9 << 1 = 18
+LSR Y, 1         ; Adresa 15: Y = 15 >> 1 = 7
+JMP 20           ; Adresa 16: Salveaza PC (17) pe stiva si sare la adresa 20
+CMP X, 18        ; Adresa 17: Compara X (18) cu 18 (Seteaza Z=1)
+BRZ 22           ; Adresa 18: Salt conditionat la adresa 22 (HALT) daca Z=1
+BRA 22           ; Adresa 19: Siguranta
+ADD Y, 10        ; Adresa 20: Y = 7 + 10 = 17
+RET              ; Adresa 21: Extrage PC (17) de pe stiva si revine
+BRA 22           ; Adresa 22: HALT

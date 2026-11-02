@@ -1,8 +1,8 @@
 module ProgramCounter (
     input clk,
     input reset,
-    input load,          // Semnal pentru salturi (Branch/Jump/Call)
-    input increment,     // Semnal pentru a trece la urmatoarea instructiune
+    input load,
+    input increment,
     input [15:0] addr_in,
     output reg [15:0] pc_out
 );
